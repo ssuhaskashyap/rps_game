@@ -30,7 +30,7 @@ const getComputerChoice = function() {
   }
 }
 
-function declareWinner(pChoice, cChoice) {
+const declareWinner = (cChoice, pChoice = DEFAULT_VALUE) => {
   if (cChoice === pChoice) {
     return DRAW;
   } else if (cChoice === ROCK && pChoice === PAPER ||
@@ -51,6 +51,7 @@ startGameBtn.addEventListener('click', function() {
   const playerChoice = getPlayerChoice();
   const computerChoice = getComputerChoice();
   console.log(playerChoice, computerChoice);
-  const winner = declareWinner(playerChoice, computerChoice);
+  const winner = declareWinner(computerChoice, playerChoice);
   console.log(winner);
+  gameIsStarted = false;
 });
